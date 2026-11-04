@@ -85,6 +85,335 @@ button,input{font:inherit}button{cursor:pointer;color:inherit}
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
+/* ========================================
+   NOCTURNE — SMOOTH ANIMATIONS UPGRADE
+======================================== */
+
+/* Global smoothness */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+input,
+.song-card,
+.nav-item,
+.lyric-line {
+    transition:
+        color 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.4s ease,
+        transform 0.4s cubic-bezier(.2,.8,.2,1),
+        opacity 0.35s ease;
+}
+
+/* Background animation */
+.ambient-one {
+    animation: ambientFloat 14s ease-in-out infinite alternate;
+}
+
+.ambient-two {
+    animation: ambientFloat 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes ambientFloat {
+    0% {
+        transform: translate3d(-20px, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(35px, 25px, 0) scale(1.12);
+    }
+    100% {
+        transform: translate3d(-10px, 45px, 0) scale(.95);
+    }
+}
+
+/* Main glass container */
+.glass-app {
+    animation: appAppear 1s cubic-bezier(.16,1,.3,1) both;
+}
+
+@keyframes appAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.97);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Sidebar navigation */
+.nav-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item:hover {
+    transform: translateX(5px);
+    background: rgba(255,255,255,.18);
+}
+
+.nav-item:active {
+    transform: scale(.96);
+}
+
+.nav-item span {
+    transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.nav-item:hover span {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+/* Song cards */
+.song-card {
+    animation: cardAppear .6s cubic-bezier(.16,1,.3,1) both;
+}
+
+.song-card:hover {
+    transform: translateY(-5px) scale(1.025);
+    background: rgba(255,255,255,.19);
+    box-shadow: 0 12px 30px rgba(15,25,65,.2);
+}
+
+.song-card:active {
+    transform: scale(.97);
+}
+
+.cover-wrap img {
+    transition: transform .7s cubic-bezier(.2,.8,.2,1);
+}
+
+.song-card:hover .cover-wrap img {
+    transform: scale(1.09);
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Main album artwork */
+.feature-image {
+    transition:
+        box-shadow .6s ease,
+        border-radius .6s ease;
+}
+
+.feature-image > img {
+    transition:
+        opacity .6s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.feature-image:hover > img {
+    transform: scale(1.035);
+}
+
+.feature-caption {
+    animation: captionAppear .8s .2s ease both;
+}
+
+@keyframes captionAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Next song panel */
+.next-track {
+    transition:
+        background .4s ease,
+        transform .4s ease,
+        backdrop-filter .4s ease;
+}
+
+.next-track:hover {
+    background: rgba(210,220,255,.36);
+    transform: translateY(-4px);
+}
+
+.next-track > img {
+    transition: transform .5s ease;
+}
+
+.next-track:hover > img {
+    transform: scale(1.06);
+}
+
+/* Lyrics panel */
+.lyrics-panel {
+    transition: background .5s ease, box-shadow .5s ease;
+}
+
+.lyrics-panel:hover {
+    background: rgba(196,207,241,.22);
+}
+
+.lyrics-content {
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+}
+
+.lyric-line {
+    opacity: .7;
+    transition:
+        opacity .45s ease,
+        color .45s ease,
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        text-shadow .45s ease;
+}
+
+.lyric-line.active {
+    opacity: 1;
+    transform: translateX(5px) scale(1.02);
+}
+
+/* Bottom player */
+.player-bar {
+    transition:
+        background .5s ease,
+        box-shadow .5s ease,
+        transform .4s ease;
+}
+
+.player-bar:hover {
+    background: rgba(205,216,249,.25);
+    box-shadow: 0 10px 35px rgba(10,20,55,.16);
+}
+
+/* Play button */
+.play-btn {
+    transition: transform .3s ease, text-shadow .3s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.25);
+    text-shadow: 0 0 18px rgba(255,255,255,.8);
+}
+
+.play-btn:active {
+    transform: scale(.85);
+}
+
+/* Previous / Next / Shuffle */
+.sub-control {
+    transition: transform .3s ease, color .3s ease;
+}
+
+.sub-control:hover {
+    transform: scale(1.25);
+    color: white;
+}
+
+.sub-control:active {
+    transform: scale(.85);
+}
+
+/* Heart animation */
+.heart-btn,
+.card-heart {
+    transition: transform .3s ease, color .3s ease;
+}
+
+.heart-btn:hover,
+.card-heart:hover {
+    transform: scale(1.3);
+    color: #ffb5d6;
+}
+
+/* Search input */
+.search-box {
+    transition:
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.search-box:focus-within {
+    border-color: rgba(255,255,255,.65);
+    background: rgba(255,255,255,.18);
+    box-shadow: 0 0 25px rgba(205,220,255,.15);
+}
+
+.search-box button:hover {
+    transform: scale(1.04);
+    background: white;
+}
+
+.search-box button:active {
+    transform: scale(.96);
+}
+
+/* Smooth volume and seek */
+input[type="range"] {
+    cursor: pointer;
+    transition: opacity .3s ease;
+}
+
+input[type="range"]:hover {
+    opacity: .8;
+}
+
+/* Custom scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(225,235,255,.35) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(225,235,255,.3);
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,.65);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+     
+
    </style>
 </head>
 <body>
