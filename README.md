@@ -32,3 +32,6 @@ No API keys or backend are required.
 
 ## Visual update
 The interface has been redesigned with a blue-violet glassmorphism layout inspired by the supplied reference: compact left playlist, large center artwork, right-side lyrics, and a bottom player dock.
+
+demo""
+https://music-player30.netlify.app/
